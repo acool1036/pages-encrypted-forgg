@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDb Iframe Embed</title>
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;500;600;700&display=swap');
+  html{
+    background-color: black;
+    color: white;
+    cursor: cell;
+    font-family: "Palanquin Dark", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  a{
+    color: white;
+  }
+        
+    </style>
+</head>
+<body>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const imdbId = urlParams.get('IMDb');
+        const s = urlParams.get('s');
+        const e = urlParams.get('e');
+        const iframeUrl = `embed.html#https://multiembed.mov/directstream.php?video_id=${imdbId}&s=${s}&e=${e}`;
+
+        if (imdbId) {
+            document.write(`<iframe src="${iframeUrl}" title="IMDb Movie" height="600px" width="1000px"></iframe>`);
+        } else {
+            document.write('<p>Please provide a valid IMDb ID in the URL parameter.</p>');
+        }
+    </script>
+
+</body>
+</html>
